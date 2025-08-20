@@ -1,0 +1,42 @@
+CRITICAL - 2025-07-07 14:00:24 --> ErrorException: Undefined variable $route
+[Method: CLI, Route: make:controller/Apps/Pengguna]
+in APPPATH\Config\Routes.php on line 32.
+ 1 APPPATH\Config\Routes.php(32): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\Router\RouteCollection.php(799): CodeIgniter\Router\RouteCollection->{closure}()
+ 3 APPPATH\Config\Routes.php(28): CodeIgniter\Router\RouteCollection->group()
+ 4 SYSTEMPATH\Router\RouteCollection.php(339): require('D:\\SKRIPSI\\imam\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\Boot.php(360): CodeIgniter\CLI\Console->run()
+ 7 SYSTEMPATH\Boot.php(104): CodeIgniter\Boot::runCommand()
+ 8 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark()
+CRITICAL - 2025-07-07 14:00:47 --> ErrorException: Undefined variable $route
+[Method: CLI, Route: make:controller/Apps/Pengguna]
+in APPPATH\Config\Routes.php on line 32.
+ 1 APPPATH\Config\Routes.php(32): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\Router\RouteCollection.php(799): CodeIgniter\Router\RouteCollection->{closure}()
+ 3 APPPATH\Config\Routes.php(28): CodeIgniter\Router\RouteCollection->group()
+ 4 SYSTEMPATH\Router\RouteCollection.php(339): require('D:\\SKRIPSI\\imam\\app\\Config\\Routes.php')
+ 5 SYSTEMPATH\CLI\Console.php(41): CodeIgniter\Router\RouteCollection->loadRoutes()
+ 6 SYSTEMPATH\Boot.php(360): CodeIgniter\CLI\Console->run()
+ 7 SYSTEMPATH\Boot.php(104): CodeIgniter\Boot::runCommand()
+ 8 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark()
+CRITICAL - 2025-07-07 14:08:16 --> ErrorException: Undefined variable $title
+[Method: GET, Route: apps]
+in APPPATH\Views\apps\templates\header.php on line 6.
+ 1 APPPATH\Views\apps\templates\header.php(6): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\View\View.php(224): include('D:\\SKRIPSI\\imam\\app\\Views\\apps\\templates\\header.php')
+ 3 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(475): CodeIgniter\View\View->render()
+ 5 APPPATH\Views\apps\index.php(1): CodeIgniter\View\View->include()
+ 6 SYSTEMPATH\View\View.php(224): include('D:\\SKRIPSI\\imam\\app\\Views\\apps\\index.php')
+ 7 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\View\View.php(240): CodeIgniter\View\View->render()
+ 9 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render()
+10 APPPATH\Controllers\Apps\Home.php(17): view()
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Apps\Home->index()
+12 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController()
+13 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest()
+14 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter()
+16 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb()
+17 SYSTEMPATH\rewrite.php(44): require_once('D:\\SKRIPSI\\imam\\public\\index.php')
