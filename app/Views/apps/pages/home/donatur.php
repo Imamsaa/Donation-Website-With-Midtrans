@@ -42,7 +42,7 @@ Terima kasih telah menjadi bagian dari perubahan nyata melalui donasi Anda. Seti
                         <td>
                           <?php
                             if (!empty($p['total_donate']) && $p['total_donate'] != 0) {
-                                echo $p['total_amount']/$p['target_donate']*100 . '%';
+                                echo $p['total_donate']/$p['target_donate']*100 . '%';
                             } else {
                                 echo '0%';
                             }

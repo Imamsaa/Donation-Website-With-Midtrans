@@ -80,7 +80,6 @@
                       <tr class="bg-light">
                           <th colspan="3" class="text-right">Total Donasi:</th>
                           <th>Rp. <?= number_format($totalDonasi, 0, '.', '.') ?></th>
-                          <th colspan="2"></th>
                       </tr>
                   </tfoot>
               </table>
