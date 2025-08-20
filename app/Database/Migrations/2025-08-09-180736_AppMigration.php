@@ -393,8 +393,8 @@ class AppMigration extends Migration
 
         //contoh data awal
         $this->db->table('setting')->insert([
-            'server_key' => 'SB-Mid-server-4VIz2bklbBYFv_gvPpA33Qw_',
-            'client_key' => 'SB-Mid-client-o6_E3CUErSGC06il',
+            'server_key' => '',
+            'client_key' => '',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
