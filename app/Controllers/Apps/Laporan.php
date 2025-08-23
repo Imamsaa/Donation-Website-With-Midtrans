@@ -22,9 +22,10 @@ class Laporan extends BaseController
     
     public function index()
     {
-        // Get date filter parameters
+        // Get filter parameters
         $startDate = $this->request->getGet('start_date');
         $endDate = $this->request->getGet('end_date');
+        $programFilter = $this->request->getGet('program_filter');
         
         $referral = session()->get('referral');
 
@@ -39,7 +40,18 @@ class Laporan extends BaseController
                   ->where('DATE(donasi.created_at) <=', $endDate);
         }
         
+        // Apply program filter if provided
+        if ($programFilter && !empty($programFilter)) {
+            $query->groupStart()
+                  ->like('program.title', $programFilter)
+                  ->orLike('program.slug', $programFilter)
+                  ->groupEnd();
+        }
+        
         $donasi = $query->findAll();
+
+        // Get all programs for dropdown filter
+        $allPrograms = $this->programModel->select('program_id, title, slug')->findAll();
 
         $data = [
             'donasi' => $donasi,
@@ -47,6 +59,8 @@ class Laporan extends BaseController
             'active' => 'laporan',
             'start_date' => $startDate,
             'end_date' => $endDate,
+            'program_filter' => $programFilter,
+            'all_programs' => $allPrograms,
         ];
         
         // Load the laporan view
@@ -67,6 +81,14 @@ class Laporan extends BaseController
                               ->where('DATE(donasi.created_at) <=', $endDate);
             }
             
+            // Apply program filter for fundraiser if provided
+            if ($programFilter && !empty($programFilter)) {
+                $fundraiserQuery->groupStart()
+                              ->like('program.title', $programFilter)
+                              ->orLike('program.slug', $programFilter)
+                              ->groupEnd();
+            }
+            
             $donasi = $fundraiserQuery
                 ->groupBy('program.program_id, program.title, program.target_donate')
                 ->findAll();
@@ -77,6 +99,8 @@ class Laporan extends BaseController
                 'active' => 'laporan',
                 'start_date' => $startDate,
                 'end_date' => $endDate,
+                'program_filter' => $programFilter,
+                'all_programs' => $allPrograms,
             ];
             return view('apps/pages/laporanfund', $data);
         }
@@ -95,9 +119,10 @@ class Laporan extends BaseController
             return view('apps/pages/laporan/list', $data);
         }else{
             
-            // Get date filter parameters
+            // Get filter parameters
             $startDate = $this->request->getGet('start_date');
             $endDate = $this->request->getGet('end_date');
+            $programFilter = $this->request->getGet('program_filter');
             
             $referral = session()->get('referral');
 
@@ -114,7 +139,18 @@ class Laporan extends BaseController
                     ->where('DATE(donasi.created_at) <=', $endDate);
             }
             
+            // Apply program filter if provided
+            if ($programFilter && !empty($programFilter)) {
+                $query->groupStart()
+                      ->like('program.title', $programFilter)
+                      ->orLike('program.slug', $programFilter)
+                      ->groupEnd();
+            }
+            
             $donasi = $query->findAll();
+
+            // Get all programs for dropdown filter
+            $allPrograms = $this->programModel->select('program_id, title, slug')->findAll();
 
             $data = [
                 'donasi' => $donasi,
@@ -122,6 +158,8 @@ class Laporan extends BaseController
                 'active' => 'laporan',
                 'start_date' => $startDate,
                 'end_date' => $endDate,
+                'program_filter' => $programFilter,
+                'all_programs' => $allPrograms,
                 'slug' => $slug
             ];
             
